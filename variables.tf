@@ -1,7 +1,7 @@
 variable "project_id" {
   description = "The GCP project ID"
   type        = string
-  default = "charged-magnet-443300-q4"
+  default = "amazing-math-407308"
 }
 
 variable "region" {
@@ -13,7 +13,7 @@ variable "region" {
 variable "network_name" {
   description = "The name of the VPC"
   type        = string
-  default = "gke-demo-vpc"
+  default = "gke-demo-vpc1"
 }
 
 variable "public_subnet_cidrs" {
