@@ -1,0 +1,35 @@
+grafana:
+  grafana.ini:
+    server:
+      # domain: grafana.grafanadevopsclass.com
+      #root_url: "%(protocol)s://%(domain)s/"
+      root_url: https://grafana.grafanadevopsclass.com/grafana
+      # serve_from_sub_path: true
+  ingress:
+    ## If true, Grafana Ingress will be created
+    ##
+    enabled: true
+
+    ## Annotations for Grafana Ingress
+    ##
+    annotations: 
+      nginx.ingress.kubernetes.io/rewrite-target: /$1
+      nginx.ingress.kubernetes.io/use-regex: "true"
+      kubernetes.io/ingress.class: nginx
+      # kubernetes.io/tls-acme: "true"
+
+    ## Labels to be added to the Ingress
+    ##
+    labels: {}
+
+    ## Hostnames.
+    ## Must be provided if Ingress is enable.
+    ##
+    # hosts:
+    #   - grafana.domain.com
+    hosts:
+      - grafana.grafanadevopsclass.com
+
+    ## Path for grafana ingress
+    path: /grafana/?(.*)
+    pathType: ImplementationSpecific
